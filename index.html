@@ -69,6 +69,7 @@ h2{font-size:clamp(2.2rem,5.6vw,5rem);line-height:.9;color:var(--ink);text-wrap:
 .tira{margin-top:clamp(28px,4vw,56px);display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--gut) 1.4rem;scrollbar-width:none;-webkit-overflow-scrolling:touch;align-items:stretch}
 .tira::-webkit-scrollbar{display:none}
 .pieza{flex:0 0 auto;scroll-snap-align:start;position:relative;border-radius:8px;overflow:hidden;background:#000;height:clamp(300px,54svh,560px);isolation:isolate;aspect-ratio:16/9}
+.pieza.v{aspect-ratio:9/16}
 .pieza video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .pieza .cap{position:absolute;left:0;right:0;bottom:0;padding:1rem 1.1rem;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.75));display:grid;gap:.25rem;z-index:2}
 .pieza .cap b{font-family:"Tommy",Arial,sans-serif;font-weight:700;color:var(--ink);font-size:.98rem;line-height:1.15}
@@ -120,11 +121,14 @@ h2{font-size:clamp(2.2rem,5.6vw,5rem);line-height:.9;color:var(--ink);text-wrap:
 </section>
 
 <section class="muestra" id="muestra">
-  <div class="sec-h"><span class="k">02 · Muestra de contenido</span><h2 class="fd">Lo que podemos crear para Tattersall</h2><p class="lead">Tres loops de video hechos por <b>Digitals</b> para esta propuesta, listos para los heros de la web y para redes: la bodega con luz cenital, el puerto de noche y el patio al amanecer. Toque para pausar.</p></div>
+  <div class="sec-h"><span class="k">02 · Muestra de contenido</span><h2 class="fd">Lo que podemos crear para Tattersall</h2><p class="lead">Seis piezas de video hechas por <b>Digitals</b> para esta propuesta: tres loops para los heros de la web y tres piezas más, dos de ellas verticales para redes. Toque para pausar.</p></div>
   <div class="tira" id="tira">
     <figure class="pieza"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/poster-bodega.jpg"><source src="video/bodega.mp4" type="video/mp4"></video><figcaption class="cap"><span>Loop · 16:9 · 5 s · hero web</span><b>La bodega, con luz cenital</b></figcaption></figure>
     <figure class="pieza"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/poster-puerto.jpg"><source src="video/puerto.mp4" type="video/mp4"></video><figcaption class="cap"><span>Loop · 16:9 · 5 s · hero web</span><b>Terminal de contenedores, de noche</b></figcaption></figure>
     <figure class="pieza"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/poster-patio.jpg"><source src="video/patio.mp4" type="video/mp4"></video><figcaption class="cap"><span>Loop · 16:9 · 5 s · hero web</span><b>El patio de rental al amanecer</b></figcaption></figure>
+    <figure class="pieza"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/poster-muestra-1.jpg"><source src="video/muestra-1.mp4" type="video/mp4"></video><figcaption class="cap"><span>Loop · 16:9 · 12 s · hero web</span><b>La faena, desde arriba</b></figcaption></figure>
+    <figure class="pieza v"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/poster-muestra-2.jpg"><source src="video/muestra-2.mp4" type="video/mp4"></video><figcaption class="cap"><span>Reel · 9:16 · 12 s · redes</span><b>La oruga, de cerca</b></figcaption></figure>
+    <figure class="pieza v"><video data-amb data-tap autoplay muted loop playsinline preload="metadata" poster="img/eq/poster-muestra-3.jpg"><source src="video/muestra-3.mp4" type="video/mp4"></video><figcaption class="cap"><span>Reel · 9:16 · 12 s · redes</span><b>Polvo y luz</b></figcaption></figure>
   </div>
   <p class="hint">← deslice →</p>
   <p class="nota"><b>Sobre las imágenes y el video:</b> las doce fotografías de faena y los tres loops son piezas propias generadas por Digitals para Tattersall Maquinarias en su paleta. Los recortes de máquinas y las seis fotos del patio son las que tattersallmaquinarias.cl publica. Los datos, todos del sitio.</p>
