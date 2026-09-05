@@ -127,6 +127,7 @@ h2.t{font-family:var(--fd);font-weight:900;text-transform:uppercase;letter-spaci
 .bar a{display:flex;align-items:center;justify-content:center;min-height:62px;font-family:var(--fd);font-weight:700}
 .bar .a{background:var(--am);color:var(--tinta)}.bar .w{background:var(--az);color:#fff}
 @media (min-width:1040px){.bar{display:none}body{padding-bottom:0}}
+.clip{margin-top:1.6rem;position:relative;border-radius:10px;overflow:hidden;aspect-ratio:16/9;background:var(--tinta)}.clip img,.clip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.clip figcaption{position:absolute;left:0;right:0;bottom:0;padding:.7rem .9rem;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.7));color:#fff;font-weight:700;font-size:.95rem}.clip figcaption span{display:block;font-family:var(--fm);font-size:.66rem;letter-spacing:1px;text-transform:uppercase;color:var(--am);font-weight:400}
 </style>
 </head>
 <body>
@@ -144,6 +145,7 @@ h2.t{font-family:var(--fd);font-weight:900;text-transform:uppercase;letter-spaci
         <li><span><b>Desde 1972</b> en Chile, con más de 35 años representando marcas líderes en venta y arriendo.</span></li>
       </ul>
       <div class="tira rv" aria-hidden="true"><img src="img/cat/hyster-electrica-3r.png" alt=""><img src="img/cat/hmk-retro.png" alt=""><img src="img/cat/terberg-ev.png" alt=""><img src="img/cat/hyster-reachstacker.png" alt=""></div>
+      <figure class="clip rv"><img src="img/eq/poster-muestra-1.jpg" alt="Excavadora trabajando en una faena vista desde arriba" width="1280" height="720" loading="lazy"><video data-amb autoplay muted loop playsinline preload="metadata" poster="img/eq/poster-muestra-1.jpg" aria-hidden="true" tabindex="-1"><source src="video/muestra-1.mp4" type="video/mp4"></video><figcaption><span>Loop · 12 s</span>La faena, desde arriba</figcaption></figure>
       <div class="mobile-cta rv"><a class="btn btn-t" href="#q">Ir al formulario ↓</a></div>
     </div>
     <form class="q rv" id="q" autocomplete="on" aria-labelledby="qt">
@@ -234,6 +236,9 @@ document.documentElement.classList.replace('nojs','js');
   [].forEach.call(document.querySelectorAll('#fams-list li'),function(li){li.addEventListener('click',function(){fam.value=li.dataset.f;marca.value=li.dataset.m;upd();document.getElementById('q').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'});setTimeout(function(){suc.focus();},420);});});
   document.getElementById('q').addEventListener('submit',function(ev){ev.preventDefault();document.getElementById('llamar').click();});
 })();
+</script>
+<script>
+(function(){var rm=matchMedia('(prefers-reduced-motion: reduce)').matches,off=rm||(navigator.connection&&navigator.connection.saveData);[].forEach.call(document.querySelectorAll('video[data-amb]'),function(v){if(off){v.remove();return;}v.muted=true;var p=v.play();if(p&&p.catch)p.catch(function(){});});})();
 </script>
 </body>
 </html>
