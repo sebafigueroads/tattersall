@@ -1,0 +1,7 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>vista</title><style>html,body{margin:0;overflow:hidden}iframe{border:0;display:block}</style></head><body>
+<iframe id="f"></iframe>
+<script>
+// vista.html?p=../opcion-1.html&sel=.mani&w=1440&h=900&off=-120 → captura la página desplazada hasta `sel`
+var q=new URLSearchParams(location.search),f=document.getElementById('f');f.width=+q.get('w')||1440;f.height=+q.get('h')||900;f.src=q.get('p');
+f.addEventListener('load',function(){setTimeout(function(){try{var d=f.contentDocument,el=d.querySelector(q.get('sel'));if(el){var y=el.getBoundingClientRect().top+f.contentWindow.scrollY+(+q.get('off')||0);f.contentWindow.scrollTo(0,y);}}catch(e){}},900);});
+</script></body></html>

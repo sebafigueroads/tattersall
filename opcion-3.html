@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es-CL" class="nojs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>TATTERSALL MAQUINARIAS · TURNO COMPLETO</title>
+<meta name="description" content="Un día de trabajo en seis capítulos: de la bodega al puerto, con los equipos Hyster, HMK y Terberg de Tattersall Maquinarias. La hora real de Chile marca el capítulo en curso.">
+<meta name="theme-color" content="#08132A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tattersall Maquinarias · Turno completo">
+<meta property="og:description" content="06:00 bodega, 09:00 obra, 12:00 cámara de frío, 15:00 puerto, 18:00 patio, 22:00 terminal. Una máquina para cada hora.">
+<meta property="og:image" content="https://sebafigueroads.github.io/tattersall/img/og-3.jpg">
+<meta property="og:locale" content="es_CL">
+<link rel="icon" href="img/marca/favicon-512.png">
+<link rel="apple-touch-icon" href="img/marca/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TATTERSALL MAQUINARIAS · TURNO COMPLETO
+   Inmersiva: un día de 24 horas en seis capítulos a pantalla completa.
+   El reloj real de Chile enciende el capítulo que corresponde a la
+   hora actual: la máquina que está trabajando ahora mismo.
+   ============================================================ */
+@font-face{font-family:"Tommy";src:url(fonts/tommy-black.woff2) format("woff2");font-weight:900;font-display:swap}
+@font-face{font-family:"Tommy";src:url(fonts/tommy-bold.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Tommy";src:url(fonts/tommy-medium.woff2) format("woff2");font-weight:500;font-display:swap}
+:root{
+  --bg:#08132A; --am:#FCC024; --az:#004890; --ink:#F5F6F8; --body:#CFD6E2; --mute:#8A97AD; --hair:rgba(255,255,255,.14);
+  --gut:clamp(20px,5vw,84px); --bar:calc(60px + env(safe-area-inset-bottom)); --ease:cubic-bezier(.16,.84,.28,1);
+  --fd:"Tommy",-apple-system,Arial,sans-serif; --ft:"Source Sans 3","Source Sans Pro",-apple-system,Arial,sans-serif; --fm:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+html.js{scroll-snap-type:y proximity}
+body{background:var(--bg);color:var(--body);font-family:var(--ft);font-size:clamp(1rem,1.15vw,1.15rem);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}
+::selection{background:var(--am);color:#08132A}
+a:focus-visible,button:focus-visible{outline:2px solid var(--am);outline-offset:3px}
+.k{font-family:var(--fm);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--am)}
+.k.g{color:var(--mute)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;padding:.9rem 1.6rem;border-radius:6px;font-family:var(--fd);font-weight:700;font-size:1rem;border:1px solid transparent;transition:transform .25s var(--ease),background .25s}
+.btn-am{background:var(--am);color:#08132A}.btn-am:hover{background:#FFD24D;transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--ink);border-color:rgba(255,255,255,.4)}.btn-o:hover{border-color:#fff}
+
+.cap{position:relative;min-height:100svh;display:grid;align-items:end;overflow:hidden;isolation:isolate;scroll-snap-align:start}
+.cap .foto{position:absolute;inset:0;z-index:-2}
+.cap .foto img,.cap .foto video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 2s var(--ease)}
+.cap.in .foto img,.cap.in .foto video{transform:scale(1)}
+.cap .foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,19,42,.35) 0%,rgba(8,19,42,.12) 40%,rgba(8,19,42,.82) 75%,rgba(8,19,42,.98) 100%)}
+.cap .in{position:relative;z-index:2;padding:18vh var(--gut) 12vh;padding-right:calc(var(--gut) + 120px);display:grid;gap:1.3rem;max-width:1600px;width:100%;margin:0 auto}
+@media (max-width:899px){.cap .in{padding-right:var(--gut)}}
+.hora{font-family:var(--fm);font-weight:700;font-size:clamp(3.4rem,12vw,11rem);line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.28);position:absolute;left:var(--gut);top:11vh;pointer-events:none;user-select:none;z-index:1;transition:color .6s,-webkit-text-stroke-color .6s}
+.cap.ahora .hora{color:var(--am);-webkit-text-stroke-color:var(--am)}
+.ahora-tag{display:none;font-family:var(--fm);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#08132A;background:var(--am);padding:.35rem .6rem;border-radius:3px;width:max-content}
+.cap.ahora .ahora-tag{display:inline-block}
+h1,.cap h2{font-family:var(--fd);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.02em;color:var(--ink);text-wrap:balance}
+h1{font-size:clamp(3rem,10.2vw,10rem);max-width:12ch}
+h1 em{font-style:normal;color:var(--am)}
+.cap h2{font-size:clamp(2.4rem,7vw,7rem);max-width:13ch}
+.cap p.t{max-width:54ch;font-size:clamp(1.02rem,1.4vw,1.28rem);font-weight:300;color:var(--body)}
+.cap p.t b{color:var(--ink);font-weight:600}
+.data{display:flex;flex-wrap:wrap;gap:1.4rem 2.6rem;padding-top:1.4rem;border-top:1px solid var(--hair)}
+.data b{display:block;font-family:var(--fm);font-weight:700;font-size:clamp(1.5rem,2.8vw,2.3rem);color:var(--ink);letter-spacing:-.02em;line-height:1}
+.data .k{display:block;margin-top:.4rem}
+.maq{display:flex;gap:1.4rem;align-items:center;flex-wrap:wrap}
+.maq img{height:clamp(60px,8vw,110px);width:auto;filter:drop-shadow(0 12px 22px rgba(0,0,0,.6))}
+.maq span{font-family:var(--fm);font-size:.74rem;letter-spacing:.8px;text-transform:uppercase;border:1px solid var(--hair);padding:.42rem .7rem;border-radius:4px;color:var(--body)}
+html.js .rv{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+html.js .cap.in .rv{opacity:1;transform:none}
+html.js .cap.in .rv:nth-child(2){transition-delay:.08s}html.js .cap.in .rv:nth-child(3){transition-delay:.16s}html.js .cap.in .rv:nth-child(4){transition-delay:.24s}html.js .cap.in .rv:nth-child(5){transition-delay:.3s}
+
+/* riel de horas */
+.rail{position:fixed;right:var(--gut);top:50%;transform:translateY(-50%);z-index:30;display:none;flex-direction:column;gap:18px;pointer-events:none}
+@media (min-width:900px){.rail{display:flex}}
+.rail a{pointer-events:auto;display:flex;align-items:center;gap:10px;justify-content:flex-end;font-family:var(--fm);font-size:10px;letter-spacing:1.2px;color:var(--mute);text-transform:uppercase}
+.rail a i{display:block;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.28);transition:background .3s,transform .3s}
+.rail a.on{color:var(--ink)}.rail a.on i{background:var(--am);transform:scale(1.5)}
+.rail a.now i{box-shadow:0 0 0 4px rgba(252,192,36,.25)}
+.hd{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px var(--gut);pointer-events:none}
+.hd>*{pointer-events:auto}.hd img{height:34px;width:auto}
+.hd .reloj{font-family:var(--fm);font-size:.9rem;font-weight:700;color:var(--am)}
+@media (min-width:900px){.hd img{height:40px}}
+.hint{position:fixed;left:var(--gut);bottom:2.6vh;z-index:50;font-family:var(--fm);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mute);display:none;gap:.8rem;align-items:center}
+@media (min-width:900px){.hint{display:flex}}
+.hint i{display:block;width:1px;height:38px;background:var(--hair);position:relative;overflow:hidden}
+.hint i::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--am);animation:drop 1.8s var(--ease) infinite}
+@keyframes drop{to{top:110%}}
+.cierre .in{align-content:center}
+.cierre .row{display:flex;flex-wrap:wrap;gap:1rem}
+.cierre .dir{display:grid;gap:.3rem;color:var(--mute);font-size:.95rem}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#000;padding-bottom:env(safe-area-inset-bottom)}
+.bar a{display:flex;align-items:center;justify-content:center;min-height:60px;font-family:var(--fd);font-weight:700}
+.bar .a{background:var(--am);color:#08132A}.bar .w{background:var(--az);color:#fff}
+@media (min-width:900px){.bar{display:none}}
+@media (max-width:899px){body{padding-bottom:var(--bar)}.cap:last-child{min-height:calc(100svh - var(--bar))}}
+@media (prefers-reduced-motion:reduce){.cap .foto img,.cap .foto video{transform:none;transition:none}.hint i::after{animation:none}html.js .rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+<header class="hd"><a href="#c0" aria-label="Tattersall Maquinarias"><img src="img/marca/logo-blanco.png" alt="Tattersall Maquinarias" width="1896" height="385"></a><span class="reloj" id="reloj">08:00:00</span></header>
+<div class="hint" aria-hidden="true"><i></i>Baje · un día de trabajo</div>
+<nav class="rail" aria-label="Horas">
+  <a href="#c1" data-i="1"><span>06:00</span><i></i></a><a href="#c2" data-i="2"><span>09:00</span><i></i></a><a href="#c3" data-i="3"><span>12:00</span><i></i></a><a href="#c4" data-i="4"><span>15:00</span><i></i></a><a href="#c5" data-i="5"><span>18:00</span><i></i></a><a href="#c6" data-i="6"><span>22:00</span><i></i></a>
+</nav>
+
+<section class="cap" id="c0" data-i="0">
+  <div class="foto"><img src="img/eq/bodega.webp" alt="Grúa horquilla en una bodega con luz cenital" width="1920" height="1097" fetchpriority="high"><video data-amb autoplay muted loop playsinline preload="metadata" poster="img/eq/bodega.webp" aria-hidden="true" tabindex="-1"><source src="video/bodega.mp4" type="video/mp4"></video></div>
+  <span class="hora" aria-hidden="true">24 H</span>
+  <div class="in">
+    <span class="k rv">Tattersall Maquinarias · Hyster · HMK · Terberg</span>
+    <h1 class="rv">Un turno <em>completo.</em></h1><!-- COPY PROPUESTO -->
+    <p class="t rv">Seis capítulos, una máquina para cada hora del día. <b>La hora real de Chile enciende el capítulo en curso</b>: lo que está trabajando ahora mismo en una bodega, una obra, un puerto o un patio.</p>
+    <div class="data rv"><div><b>1972</b><span class="k g">operando desde</span></div><div><b>17</b><span class="k g">familias de equipos</span></div><div><b>6</b><span class="k g">sucursales</span></div><div><b id="hora0">08:00</b><span class="k g" id="ahora0">hora en Chile</span></div></div>
+  </div>
+</section>
+
+<section class="cap" id="c1" data-i="1" data-h="5" data-hf="8">
+  <div class="foto"><img src="img/eq/carga.jpg" alt="Grúas horquilla eléctricas en los cargadores al amanecer" width="1920" height="1097" loading="lazy"></div>
+  <span class="hora" aria-hidden="true">06:00</span>
+  <div class="in">
+    <span class="ahora-tag rv">Ahora mismo</span>
+    <span class="k rv">06:00 · Bodega</span>
+    <h2 class="rv">Las eléctricas salen del cargador</h2><!-- COPY PROPUESTO -->
+    <p class="t rv">Grúas horquilla eléctricas Hyster de contrapeso, de 3 y 4 ruedas, las más productivas y eficientes energéticamente del mercado para uso interior. <b>1.360 a 1.814 kg</b>. Transpaletas eléctricas de 2.000 a 3.628 kg para carga y descarga.</p>
+    <div class="maq rv"><img src="img/cat/hyster-electrica-3r.png" alt="Grúa horquilla eléctrica Hyster"><img src="img/cat/hyster-electrica.png" alt="Transpaleta eléctrica Hyster"><span>Hyster · eléctricas</span></div>
+  </div>
+</section>
+
+<section class="cap" id="c2" data-i="2" data-h="8" data-hf="11">
+  <div class="foto"><img src="img/eq/retro.jpg" alt="Retroexcavadora abriendo una zanja en una obra de camino" width="1920" height="1097" loading="lazy"></div>
+  <span class="hora" aria-hidden="true">09:00</span>
+  <div class="in">
+    <span class="ahora-tag rv">Ahora mismo</span>
+    <span class="k rv">09:00 · Obra</span>
+    <h2 class="rv">La retro abre la zanja</h2><!-- COPY PROPUESTO -->
+    <p class="t rv">Retroexcavadoras HMK de <b>100 HP</b>, «compacto, potente y comodidad», diseñadas para un uso con problema cero en construcción y en las aplicaciones más difíciles. Y la gama completa de movimiento de tierra: excavadoras de 12,6 a 23,6 toneladas, cargador frontal de 282 HP, motoniveladora y rodillo.</p>
+    <div class="maq rv"><img src="img/cat/hmk-retro.png" alt="Retroexcavadora HMK"><img src="img/cat/hmk-excavadora.png" alt="Excavadora HMK"><span>HMK · movimiento de tierra</span></div>
+  </div>
+</section>
+
+<section class="cap" id="c3" data-i="3" data-h="11" data-hf="14">
+  <div class="foto"><img src="img/eq/frio.jpg" alt="Apilador eléctrico en una cámara de frío" width="1600" height="1040" loading="lazy"></div>
+  <span class="hora" aria-hidden="true">12:00</span>
+  <div class="in">
+    <span class="ahora-tag rv">Ahora mismo</span>
+    <span class="k rv">12:00 · Cámara de frío</span>
+    <h2 class="rv">Pasillo angosto, altura y frío</h2><!-- COPY PROPUESTO -->
+    <p class="t rv">Apiladores eléctricos Hyster de <b>1.600 a 2.492 kg</b> para pasillos angostos y racks altos, donde cada centímetro y cada grado cuentan.</p>
+    <div class="maq rv"><img src="img/cat/hyster-apilador.png" alt="Apilador eléctrico Hyster"><span>Hyster · apiladores</span></div>
+  </div>
+</section>
+
+<section class="cap" id="c4" data-i="4" data-h="14" data-hf="17">
+  <div class="foto"><img src="img/eq/reachstacker.jpg" alt="Reach stacker elevando un contenedor en el puerto" width="1600" height="2057" loading="lazy" style="object-position:50% 35%"></div>
+  <span class="hora" aria-hidden="true">15:00</span>
+  <div class="in">
+    <span class="ahora-tag rv">Ahora mismo</span>
+    <span class="k rv">15:00 · Puerto</span>
+    <h2 class="rv">Cincuenta y dos toneladas en el aire</h2><!-- COPY PROPUESTO -->
+    <p class="t rv">Big Trucks Hyster: reach stackers y grúas de gran tonelaje de <b>hasta 52 toneladas</b>, para terminales de contenedores y patios industriales. Talcahuano, Antofagasta y Puerto Montt, con sucursal propia.</p>
+    <div class="maq rv"><img src="img/cat/hyster-reachstacker.png" alt="Reach stacker Hyster"><span>Hyster · Big Trucks</span></div>
+  </div>
+</section>
+
+<section class="cap" id="c5" data-i="5" data-h="17" data-hf="21">
+  <div class="foto"><img src="img/eq/patio.jpg" alt="Patio de arriendo con máquinas alineadas" width="1920" height="1097" loading="lazy"><video data-amb autoplay muted loop playsinline preload="metadata" poster="img/eq/patio.jpg" aria-hidden="true" tabindex="-1"><source src="video/patio.mp4" type="video/mp4"></video></div>
+  <span class="hora" aria-hidden="true">18:00</span>
+  <div class="in">
+    <span class="ahora-tag rv">Ahora mismo</span>
+    <span class="k rv">18:00 · Patio · Rental</span>
+    <h2 class="rv">Lo que sale mañana se prepara hoy</h2><!-- COPY PROPUESTO -->
+    <p class="t rv">Equipos de movimiento de carga y de tierra en constante renovación y óptimas condiciones para el arriendo. <b>Soluciones a medida en situaciones complejas</b>, con red comercial y técnica propia.</p>
+    <div class="maq rv"><img src="img/cat/hyster-combustion.png" alt="Grúa horquilla combustión Hyster"><img src="img/cat/hmk-cargador.png" alt="Cargador frontal HMK"><span>Rental · Tattersall</span></div>
+  </div>
+</section>
+
+<section class="cap" id="c6" data-i="6" data-h="21" data-hf="5">
+  <div class="foto"><img src="img/eq/puerto-noche.jpg" alt="Tractocamión de terminal bajo los focos del puerto" width="1920" height="1097" loading="lazy"><video data-amb autoplay muted loop playsinline preload="metadata" poster="img/eq/puerto-noche.jpg" aria-hidden="true" tabindex="-1"><source src="video/puerto.mp4" type="video/mp4"></video></div>
+  <span class="hora" aria-hidden="true">22:00</span>
+  <div class="in">
+    <span class="ahora-tag rv">Ahora mismo</span>
+    <span class="k rv">22:00 · Terminal</span>
+    <h2 class="rv">La noche es eléctrica</h2><!-- COPY PROPUESTO -->
+    <p class="t rv">Tractocamiones Terberg YT eléctricos con baterías de hasta <b>350 kWh</b>, frenado regenerativo y telemetría Terberg Connect de serie; rendimiento comparable al diésel y menos piezas móviles. Series YT, RT y BC, de 75 a 150 toneladas.</p>
+    <div class="maq rv"><img src="img/cat/terberg-ev.png" alt="Tractocamión eléctrico Terberg"><img src="img/cat/terberg-rt.png" alt="Terberg serie RT"><span>Terberg · vehículos especiales</span></div>
+  </div>
+</section>
+
+<section class="cap cierre" id="c7" data-i="7">
+  <div class="foto"><img src="img/eq/terberg-ev.jpg" alt="" aria-hidden="true" width="1920" height="1097" loading="lazy"></div>
+  <span class="hora" aria-hidden="true">FIN</span>
+  <div class="in">
+    <span class="k rv">Contacto</span>
+    <h2 class="rv">¿A qué hora empieza su turno?</h2><!-- COPY PROPUESTO -->
+    <div class="row rv"><a class="btn btn-am" href="tel:+56227998001">Llamar · +56 2 2799 8001</a><a class="btn btn-o" href="https://tattersallmaquinarias.cl/sucursales" target="_blank" rel="noopener">Ver sucursales</a></div>
+    <div class="dir rv"><span>Tattersall Maquinarias S.A. · desde 1972 · casa matriz en Quilicura</span><span class="k g" style="margin-top:.5rem">Rangos y familias según tattersallmaquinarias.cl</span></div>
+  </div>
+</section>
+
+<nav class="bar" aria-label="Acciones rápidas"><a class="a" href="tel:+56227998001">Llamar</a><a class="w" href="#c7">Contacto</a></nav>
+
+<script>
+document.documentElement.classList.replace('nojs','js');
+(function(){
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var caps=[].slice.call(document.querySelectorAll('.cap')),dots=[].slice.call(document.querySelectorAll('.rail a'));
+  function activa(i){dots.forEach(function(d){d.classList.toggle('on',+d.dataset.i===i);});}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');activa(+e.target.dataset.i);}});},{threshold:.45});
+  caps.forEach(function(c){io.observe(c);});
+  addEventListener('scroll',function(){for(var i=0;i<caps.length;i++){var c=caps[i];var r=c.getBoundingClientRect();if(!c.classList.contains('in')&&r.top<innerHeight*.6&&r.bottom>innerHeight*.4){c.classList.add('in');activa(+c.dataset.i);}}},{passive:true});
+  // reloj real de Chile: marca el capítulo cuya ventana horaria incluye la hora actual
+  var reloj=document.getElementById('reloj'),h0=document.getElementById('hora0'),a0=document.getElementById('ahora0');
+  function tick(){var f=new Intl.DateTimeFormat('es-CL',{timeZone:'America/Santiago',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}),p={};f.formatToParts(new Date()).forEach(function(x){p[x.type]=x.value;});
+    var hh=+p.hour; reloj.textContent=p.hour+':'+p.minute+':'+p.second; h0.textContent=p.hour+':'+p.minute;
+    caps.forEach(function(c){var a=+c.dataset.h,b=+c.dataset.hf;if(isNaN(a))return;var on=(a<b)?(hh>=a&&hh<b):(hh>=a||hh<b);c.classList.toggle('ahora',on);if(on){a0.textContent='hora en Chile · capítulo en curso: '+c.querySelector('.k').textContent.split('·')[0].trim();dots.forEach(function(d){d.classList.toggle('now',+d.dataset.i===+c.dataset.i);});}});}
+  tick();setInterval(tick,1000);
+  (function(){var vs=document.querySelectorAll('video[data-amb]'),off=rm||(navigator.connection&&navigator.connection.saveData);vs.forEach(function(v){if(off){v.remove();return;}v.muted=true;var p=v.play();if(p&&p.catch)p.catch(function(){});});})();
+})();
+</script>
+</body>
+</html>
