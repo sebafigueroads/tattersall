@@ -137,7 +137,7 @@ h2.t{font-family:var(--fd);font-weight:900;text-transform:uppercase;letter-spaci
     <div>
       <span class="k rv">Venta · rental · servicio técnico · repuestos</span>
       <h1 class="rv">Cotiza o arrienda hoy.</h1><!-- COPY PROPUESTO -->
-      <p class="hero-sub rv">Elige lo que necesitas, la marca, la familia de equipo y la sucursal más cercana. <b style="color:var(--tinta)">El mensaje se arma solo</b>: lo dictas por teléfono, lo copias o lo pegas en el formulario oficial.</p>
+      <p class="hero-sub rv">Elige lo que necesitas, la marca, la familia de equipo y la sucursal más cercana. <b style="color:var(--tinta)">El mensaje se arma solo</b>: lo dictas por teléfono, lo copias o lo llevas a la sucursal que elijas.</p>
       <ul class="pruebas rv">
         <li><span><b>17 familias de equipos</b> Hyster, HMK y Terberg: de la transpaleta al reach stacker de 52 toneladas.</span></li>
         <li><span><b>Seis sucursales propias</b> de Antofagasta a Puerto Montt, con servicio técnico y repuestos originales.</span></li>
@@ -148,7 +148,7 @@ h2.t{font-family:var(--fd);font-weight:900;text-transform:uppercase;letter-spaci
     </div>
     <form class="q rv" id="q" autocomplete="on" aria-labelledby="qt">
       <h2 id="qt">Armar mi solicitud</h2>
-      <p class="s">Sin registro ni espera: el mensaje se arma aquí y sale por llamada o por el formulario oficial.</p>
+      <p class="s">Sin registro ni espera: el mensaje se arma aquí y sale por llamada o directo a tu sucursal.</p>
       <div><span class="k" style="display:block;color:var(--mute-l);margin-bottom:.45rem;font-size:10.5px;letter-spacing:1.2px">Necesidad</span>
         <div class="nec" role="group" aria-label="Necesidad"><button type="button" data-n="Comprar" aria-pressed="true">Comprar</button><button type="button" data-n="Arrendar" aria-pressed="false">Arrendar</button><button type="button" data-n="Servicio técnico" aria-pressed="false">Servicio</button><button type="button" data-n="Repuestos" aria-pressed="false">Repuestos</button></div></div>
       <div class="two">
@@ -162,7 +162,7 @@ h2.t{font-family:var(--fd);font-weight:900;text-transform:uppercase;letter-spaci
       <a class="btn btn-am" id="llamar" href="tel:+56227998001">Llamar · +56 2 2799 8001</a>
       <button class="btn btn-o" type="button" id="copiar">Copiar el mensaje</button>
       <p class="copiado" id="copiado" aria-live="polite"></p>
-      <a class="btn btn-az" href="https://tattersallmaquinarias.cl/contacto" target="_blank" rel="noopener">Pegarlo en el formulario de contacto</a>
+      <a class="btn btn-az" href="https://tattersallmaquinarias.cl/sucursales" target="_blank" rel="noopener">Ver sucursales y contactos</a>
       <p class="alt">Lunes a viernes en horario de oficina · <a href="https://tattersallmaquinarias.cl/sucursales" target="_blank" rel="noopener">teléfonos por sucursal</a></p>
     </form>
   </section>
@@ -189,7 +189,8 @@ h2.t{font-family:var(--fd);font-weight:900;text-transform:uppercase;letter-spaci
     <li data-f="Tractocamión eléctrico Terberg YT-EV" data-m="Terberg"><img src="img/cat/terberg-ev.png" alt=""><div><b>Tractocamión eléctrico YT-EV</b><small>Terberg · hasta 350 kWh · 90 t</small></div><span class="go">Cotizar →</span></li>
     <li data-f="Tractocamión combustión Terberg YT" data-m="Terberg"><img src="img/cat/terberg-yt.png" alt=""><div><b>Tractocamión combustión YT</b><small>Terberg · 75 t</small></div><span class="go">Cotizar →</span></li>
     <li data-f="Tractocamión Terberg serie RT" data-m="Terberg"><img src="img/cat/terberg-rt.png" alt=""><div><b>Serie RT</b><small>Terberg · 150 t · 4×4</small></div><span class="go">Cotizar →</span></li>
-    <li data-f="Tractocamión Terberg serie BC eléctrico" data-m="Terberg"><img src="img/cat/terberg-bc.png" alt=""><div><b>Serie BC · eléctrico y combustión</b><small>Terberg · distribución</small></div><span class="go">Cotizar →</span></li>
+    <li data-f="Tractocamión Terberg serie BC eléctrico" data-m="Terberg"><img src="img/cat/terberg-bc.png" alt=""><div><b>Serie BC eléctrico</b><small>Terberg · distribución</small></div><span class="go">Cotizar →</span></li>
+    <li data-f="Tractocamión Terberg serie BC eléctrico" data-m="Terberg"><img src="img/cat/terberg-bc.png" alt=""><div><b>Serie BC combustión</b><small>Terberg · distribución</small></div><span class="go">Cotizar →</span></li>
   </ul>
 </section>
 
@@ -227,7 +228,7 @@ document.documentElement.classList.replace('nojs','js');
   function upd(){txt=msg();prev.textContent='Tu mensaje: ';var b=document.createElement('b');b.textContent=txt;prev.appendChild(b);cop.textContent='';}
   [marca,fam,suc,nom,emp].forEach(function(i){i.addEventListener('input',upd);i.addEventListener('change',upd);});upd();
   [].forEach.call(document.querySelectorAll('.nec button'),function(b){b.addEventListener('click',function(){[].forEach.call(document.querySelectorAll('.nec button'),function(x){x.setAttribute('aria-pressed','false');});b.setAttribute('aria-pressed','true');nec=b.dataset.n;upd();});});
-  document.getElementById('copiar').addEventListener('click',function(){var done=function(){cop.textContent='Mensaje copiado · pégalo en el formulario';};
+  document.getElementById('copiar').addEventListener('click',function(){var done=function(){cop.textContent='Mensaje copiado · pégalo donde lo envíes';};
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,function(){cop.textContent='No se pudo copiar; selecciónalo arriba';});}
     else{var r=document.createRange();r.selectNodeContents(prev.querySelector('b'));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done();}catch(e){cop.textContent='Selecciónalo arriba y cópialo';}}});
   [].forEach.call(document.querySelectorAll('#fams-list li'),function(li){li.addEventListener('click',function(){fam.value=li.dataset.f;marca.value=li.dataset.m;upd();document.getElementById('q').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'});setTimeout(function(){suc.focus();},420);});});
